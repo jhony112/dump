@@ -1,0 +1,189 @@
+-- Table: public.account_officer
+
+-- DROP TABLE public.account_officer;
+
+CREATE TABLE public.account_officer
+(
+    account_officer_id integer NOT NULL DEFAULT nextval('account_officer_account_officer_id_seq'::regclass),
+    account_officer_name character varying COLLATE pg_catalog."default",
+    terminal_id character varying COLLATE pg_catalog."default",
+    CONSTRAINT account_officer_pkey PRIMARY KEY (account_officer_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.account_officer
+    OWNER to jhony112;
+
+-- Index: account_officer_id
+
+-- DROP INDEX public.account_officer_id;
+
+CREATE INDEX account_officer_id
+    ON public.account_officer USING btree
+    (account_officer_id)
+    TABLESPACE pg_default;
+
+
+
+
+
+
+   -- Table: public.pos_transactions
+
+-- DROP TABLE public.pos_transactions;
+
+CREATE TABLE public.pos_transactions
+(
+    tid bigint NOT NULL DEFAULT nextval('pos_transactions_tid_seq'::regclass),
+    transaction_id character varying(150) COLLATE pg_catalog."default",
+    terminal_id character varying(150) COLLATE pg_catalog."default",
+    merchant_id character varying(150) COLLATE pg_catalog."default",
+    transaction_type character varying(100) COLLATE pg_catalog."default",
+    transaction_date character varying(100) COLLATE pg_catalog."default",
+    transaction_amount numeric(15,2),
+    "timestamp" bigint,
+    CONSTRAINT pos_transactions_pkey PRIMARY KEY (tid)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.pos_transactions
+    OWNER to jhony112;
+
+
+
+
+
+
+ -- Table: public.merchant_info
+
+-- DROP TABLE public.merchant_info;
+
+CREATE TABLE public.merchant_info
+(
+    id bigint NOT NULL DEFAULT nextval('merchant_info_id_seq'::regclass),
+    merchant_code_name character varying(200) COLLATE pg_catalog."default",
+    merchant_code character varying(150) COLLATE pg_catalog."default",
+    sbu character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT merchant_info_pkey PRIMARY KEY (id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.merchant_info
+    OWNER to jhony112;
+
+
+
+
+
+
+
+  -- Table: public.pos_transactions
+
+-- DROP TABLE public.pos_transactions;
+
+CREATE TABLE public.pos_transactions
+(
+    tid bigint NOT NULL DEFAULT nextval('pos_transactions_tid_seq'::regclass),
+    transaction_id character varying(150) COLLATE pg_catalog."default",
+    terminal_id character varying(150) COLLATE pg_catalog."default",
+    merchant_id character varying(150) COLLATE pg_catalog."default",
+    transaction_type character varying(100) COLLATE pg_catalog."default",
+    transaction_date character varying(100) COLLATE pg_catalog."default",
+    transaction_amount numeric(15,2),
+    "timestamp" bigint,
+    CONSTRAINT pos_transactions_pkey PRIMARY KEY (tid)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.pos_transactions
+    OWNER to jhony112;
+
+
+
+
+ -- Table: public.teams
+
+-- DROP TABLE public.teams;
+
+CREATE TABLE public.teams
+(
+    team_code character varying COLLATE pg_catalog."default",
+    team_name character varying COLLATE pg_catalog."default"
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.teams
+    OWNER to jhony112;
+
+-- Index: team_code
+
+-- DROP INDEX public.team_code;
+
+CREATE INDEX team_code
+    ON public.teams USING btree
+    (team_code COLLATE pg_catalog."default")
+    TABLESPACE pg_default;
+
+
+
+ -- Table: public.support
+
+-- DROP TABLE public.support;
+
+CREATE TABLE public.support
+(
+    support_id bigint NOT NULL DEFAULT nextval('support_support_id_seq'::regclass),
+    support_officer character varying COLLATE pg_catalog."default",
+    phone character varying COLLATE pg_catalog."default",
+    merchant_id character varying COLLATE pg_catalog."default",
+    in_house character varying COLLATE pg_catalog."default",
+    phone_2 character varying COLLATE pg_catalog."default",
+    visitation character varying COLLATE pg_catalog."default",
+    ptsp character varying COLLATE pg_catalog."default",
+    CONSTRAINT support_pkey PRIMARY KEY (support_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.support
+    OWNER to jhony112;
+
+
+
+ -- Table: public.regions
+
+-- DROP TABLE public.regions;
+
+CREATE TABLE public.regions
+(
+    region_id integer NOT NULL DEFAULT nextval('regions_region_id_seq'::regclass),
+    region_name character varying COLLATE pg_catalog."default",
+    region_head character varying COLLATE pg_catalog."default",
+    terminal_id character varying COLLATE pg_catalog."default",
+    sbu character varying COLLATE pg_catalog."default",
+    merchant_code character varying COLLATE pg_catalog."default"
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.regions
+    OWNER to jhony112;
